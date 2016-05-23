@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://assets/graphics/backdrops/test_backdrop.png" type="Texture" id=1]
+[ext_resource path="res://resources/tileset.xml" type="TileSet" id=2]
+[ext_resource path="res://resources/mobs/pongbat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/mobs/floater.tscn" type="PackedScene" id=4]
+
+[node name="Map 0 0" type="Node2D"]
+
+[node name="Backdrop" type="Sprite" parent="."]
+
+transform/scale = Vector2( 1.09091, 0.923077 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 8, 8 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 65536, 0, 65559, 0, 131072, 0, 131095, 0, 196608, 0, 196631, 0, 262144, 0, 262167, 0, 327680, 0, 393216, 0, 458752, 0, 458753, 5, 458754, 5, 458755, 5, 458756, 5, 458757, 5, 458758, 5, 458759, 5, 458775, 0, 524288, 0, 524290, 1610612740, 524292, 1610612740, 524294, 1610612740, 524305, 5, 524306, 5, 524307, 5, 524308, 5, 524309, 5, 524310, 5, 524311, 0, 589824, 0, 589847, 0, 655360, 0, 655362, 11, 655364, 11, 655366, 11, 655383, 0, 720896, 0, 720897, 0, 720898, 6, 720899, 0, 720900, 6, 720901, 0, 720902, 6, 720903, 0, 720904, 0, 720905, 0, 720906, 0, 720909, 0, 720910, 0, 720911, 0, 720912, 0, 720913, 0, 720914, 0, 720915, 0, 720916, 0, 720917, 0, 720918, 0, 720919, 0 )
+
+[node name="Mobs" type="Node2D" parent="."]
+
+[node name="Pongbat" parent="Mobs" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 24, 40 )
+
+[node name="Pongbat1" parent="Mobs" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 160, 56 )
+
+[node name="Pongbat2" parent="Mobs" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 160, 24 )
+
+[node name="Floater" parent="Mobs" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 120, 16 )
+
+

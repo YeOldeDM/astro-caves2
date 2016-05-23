@@ -1,0 +1,806 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://resources/04B8.fnt" type="Font" id=1]
+[ext_resource path="res://resources/default_theme.thm" type="Theme" id=2]
+[ext_resource path="res://scripts/options.gd" type="Script" id=3]
+
+[node name="Options" type="Node"]
+
+[node name="Title" type="Label" parent="."]
+
+margin/left = 120.0
+margin/right = 192.0
+margin/bottom = 16.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Options"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="TabContainer" type="TabContainer" parent="."]
+
+margin/left = 8.0
+margin/top = 16.0
+margin/right = 184.0
+margin/bottom = 136.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+tab_align = 1
+tabs_visible = false
+script/script = ExtResource( 3 )
+
+[node name="Base" type="Tabs" parent="TabContainer"]
+
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 4.0
+margin/right = 4.0
+margin/bottom = 4.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="box" type="VBoxContainer" parent="TabContainer/Base"]
+
+margin/left = -4.0
+margin/top = -8.0
+margin/right = 172.0
+margin/bottom = 112.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_constants/separation = 2
+alignment = 0
+
+[node name="Graphics" type="Button" parent="TabContainer/Base/box"]
+
+margin/right = 176.0
+margin/bottom = 22.0
+focus_neighbour/top = NodePath("../Back")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+toggle_mode = false
+flat = true
+align = 2
+
+[node name="Audio" type="Button" parent="TabContainer/Base/box"]
+
+margin/top = 24.0
+margin/right = 176.0
+margin/bottom = 46.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+toggle_mode = false
+flat = true
+align = 2
+
+[node name="Controls" type="Button" parent="TabContainer/Base/box"]
+
+margin/top = 48.0
+margin/right = 176.0
+margin/bottom = 70.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+toggle_mode = false
+flat = true
+align = 2
+
+[node name="Credits" type="Button" parent="TabContainer/Base/box"]
+
+margin/top = 72.0
+margin/right = 176.0
+margin/bottom = 94.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+toggle_mode = false
+flat = true
+align = 2
+
+[node name="Back" type="Button" parent="TabContainer/Base/box"]
+
+margin/top = 96.0
+margin/right = 176.0
+margin/bottom = 120.0
+focus_neighbour/bottom = NodePath("../Graphics")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+toggle_mode = false
+flat = true
+align = 2
+
+[node name="Graphics" type="Tabs" parent="TabContainer"]
+
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 4.0
+margin/right = 4.0
+margin/bottom = 4.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="box" type="VBoxContainer" parent="TabContainer/Graphics"]
+
+margin/left = -4.0
+margin/top = -8.0
+margin/right = 172.0
+margin/bottom = 112.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 0
+
+[node name="Label1" type="Label" parent="TabContainer/Graphics/box"]
+
+margin/right = 176.0
+margin/bottom = 20.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Graphics"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="pixel_size" type="HBoxContainer" parent="TabContainer/Graphics/box"]
+
+margin/top = 24.0
+margin/right = 176.0
+margin/bottom = 44.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+alignment = 0
+
+[node name="Label" type="Label" parent="TabContainer/Graphics/box/pixel_size"]
+
+margin/top = 6.0
+margin/right = 86.0
+margin/bottom = 13.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Resolution"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="pixel_size_option" type="OptionButton" parent="TabContainer/Graphics/box/pixel_size"]
+
+margin/left = 90.0
+margin/right = 176.0
+margin/bottom = 20.0
+focus_neighbour/top = NodePath("../../Back")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+theme/theme = ExtResource( 2 )
+toggle_mode = false
+text = "x1"
+flat = false
+align = 0
+selected = 0
+items = [ "x1", null, false, 0, null, "x2", null, false, 1, null, "x3", null, false, 2, null, "x4", null, false, 3, null, "Fullscreen", null, false, 4, null ]
+
+[node name="glow" type="CheckBox" parent="TabContainer/Graphics/box"]
+
+margin/top = 48.0
+margin/right = 176.0
+margin/bottom = 68.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+is_pressed = true
+text = "Glow FX"
+flat = false
+align = 0
+
+[node name="tint" type="Button" parent="TabContainer/Graphics/box"]
+
+margin/top = 72.0
+margin/right = 176.0
+margin/bottom = 92.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = false
+text = "Tint Screen (TBA)"
+flat = true
+
+[node name="Back" type="Button" parent="TabContainer/Graphics/box"]
+
+margin/top = 96.0
+margin/right = 176.0
+margin/bottom = 120.0
+focus_neighbour/bottom = NodePath("../pixel_size/OptionButton")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = false
+text = "Back"
+flat = true
+
+[node name="Audio" type="Tabs" parent="TabContainer"]
+
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 4.0
+margin/right = 4.0
+margin/bottom = 4.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="box" type="VBoxContainer" parent="TabContainer/Audio"]
+
+margin/left = -4.0
+margin/top = -8.0
+margin/right = 172.0
+margin/bottom = 112.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 0
+
+[node name="Label" type="Label" parent="TabContainer/Audio/box"]
+
+margin/right = 176.0
+margin/bottom = 37.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+text = "Audio"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="SFX" type="HBoxContainer" parent="TabContainer/Audio/box"]
+
+margin/top = 41.0
+margin/right = 176.0
+margin/bottom = 78.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+alignment = 0
+
+[node name="on" type="CheckBox" parent="TabContainer/Audio/box/SFX"]
+
+margin/right = 40.0
+margin/bottom = 37.0
+focus_neighbour/left = NodePath("../volume")
+focus_neighbour/top = NodePath("../../Back")
+focus_neighbour/right = NodePath("../volume")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = true
+is_pressed = true
+text = "SFX"
+flat = false
+align = 0
+
+[node name="volume" type="HSlider" parent="TabContainer/Audio/box/SFX"]
+
+margin/left = 44.0
+margin/top = 10.0
+margin/right = 176.0
+margin/bottom = 26.0
+focus_neighbour/left = NodePath("../on")
+focus_neighbour/top = NodePath("../../Back")
+focus_neighbour/right = NodePath("../on")
+focus_neighbour/bottom = NodePath("../../Back")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+range/min = 0.0
+range/max = 1.0
+range/step = 0.1
+range/page = 0.0
+range/value = 1.0
+range/exp_edit = false
+range/rounded = false
+tick_count = 9
+ticks_on_borders = true
+
+[node name="Back" type="Button" parent="TabContainer/Audio/box"]
+
+margin/top = 82.0
+margin/right = 176.0
+margin/bottom = 120.0
+focus_neighbour/bottom = NodePath("../SFX/on")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = false
+text = "Back"
+flat = true
+
+[node name="Controls" type="Tabs" parent="TabContainer"]
+
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 4.0
+margin/right = 4.0
+margin/bottom = 4.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="box" type="VBoxContainer" parent="TabContainer/Controls"]
+
+margin/left = -4.0
+margin/top = -8.0
+margin/right = 172.0
+margin/bottom = 112.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+alignment = 0
+
+[node name="Label" type="Label" parent="TabContainer/Controls/box"]
+
+margin/right = 176.0
+margin/bottom = 27.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Controls"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="key_joy" type="OptionButton" parent="TabContainer/Controls/box"]
+
+margin/top = 31.0
+margin/right = 176.0
+margin/bottom = 58.0
+focus_neighbour/top = NodePath("../Back")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+theme/theme = ExtResource( 2 )
+toggle_mode = false
+text = "Keyboard"
+flat = false
+align = 0
+selected = 0
+items = [ "Keyboard", null, false, 0, null, "Gamepad", null, false, 1, null ]
+
+[node name="Config" type="Button" parent="TabContainer/Controls/box"]
+
+margin/top = 62.0
+margin/right = 176.0
+margin/bottom = 89.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+toggle_mode = false
+text = "Configure"
+flat = true
+
+[node name="Back" type="Button" parent="TabContainer/Controls/box"]
+
+margin/top = 93.0
+margin/right = 176.0
+margin/bottom = 120.0
+focus_neighbour/bottom = NodePath("../key_joy")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+toggle_mode = false
+text = "Back"
+flat = true
+
+[node name="Credits" type="Tabs" parent="TabContainer"]
+
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 4.0
+margin/right = 4.0
+margin/bottom = 4.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="box" type="VBoxContainer" parent="TabContainer/Credits"]
+
+margin/left = -4.0
+margin/top = -8.0
+margin/right = 172.0
+margin/bottom = 112.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 0
+
+[node name="Label" type="Label" parent="TabContainer/Credits/box"]
+
+margin/right = 176.0
+margin/bottom = 58.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+text = "Credits"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Back" type="Button" parent="TabContainer/Credits/box"]
+
+margin/top = 62.0
+margin/right = 176.0
+margin/bottom = 120.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = false
+text = "Back"
+flat = true
+
+[node name="KeyConfig" type="Tabs" parent="TabContainer"]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 4.0
+margin/right = 4.0
+margin/bottom = 4.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="box" type="VBoxContainer" parent="TabContainer/KeyConfig"]
+
+margin/left = -12.0
+margin/top = -15.0
+margin/right = 124.0
+margin/bottom = 128.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 0
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/KeyConfig/box"]
+
+margin/right = 136.0
+margin/bottom = 126.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+columns = 2
+
+[node name="Action" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/right = 62.0
+margin/bottom = 7.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+text = "ACTION"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Key" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/left = 66.0
+margin/right = 135.0
+margin/bottom = 7.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+text = "Key"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="UpLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/top = 14.0
+margin/right = 62.0
+margin/bottom = 21.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+text = "Up"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="move_up" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/left = 66.0
+margin/top = 11.0
+margin/right = 135.0
+margin/bottom = 24.0
+rect/min_size = Vector2( 53, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+toggle_mode = false
+text = "N/A"
+flat = false
+
+[node name="DownLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/top = 31.0
+margin/right = 62.0
+margin/bottom = 38.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+text = "Down"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="move_down" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/left = 66.0
+margin/top = 28.0
+margin/right = 135.0
+margin/bottom = 41.0
+rect/min_size = Vector2( 53, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+toggle_mode = false
+text = "N/A"
+flat = false
+
+[node name="LeftLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/top = 48.0
+margin/right = 62.0
+margin/bottom = 55.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+text = "Left"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="move_left" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/left = 66.0
+margin/top = 45.0
+margin/right = 135.0
+margin/bottom = 58.0
+rect/min_size = Vector2( 53, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+toggle_mode = false
+text = "N/A"
+flat = false
+
+[node name="RightLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/top = 65.0
+margin/right = 62.0
+margin/bottom = 72.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+text = "Right"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="move_right" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/left = 66.0
+margin/top = 62.0
+margin/right = 135.0
+margin/bottom = 75.0
+rect/min_size = Vector2( 53, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+toggle_mode = false
+text = "N/A"
+flat = false
+
+[node name="HoldLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/top = 82.0
+margin/right = 62.0
+margin/bottom = 89.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+text = "Hold Dir."
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="hold_direction" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/left = 66.0
+margin/top = 79.0
+margin/right = 135.0
+margin/bottom = 92.0
+rect/min_size = Vector2( 53, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+toggle_mode = false
+text = "N/A"
+flat = false
+
+[node name="LaserLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/top = 99.0
+margin/right = 62.0
+margin/bottom = 106.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+text = "Fire Laser"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fire_laser" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/left = 66.0
+margin/top = 96.0
+margin/right = 135.0
+margin/bottom = 109.0
+rect/min_size = Vector2( 53, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+toggle_mode = false
+text = "N/A"
+flat = false
+
+[node name="MissileLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/top = 116.0
+margin/right = 62.0
+margin/bottom = 123.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+text = "Fire Missile"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fire_missile" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+
+margin/left = 66.0
+margin/top = 113.0
+margin/right = 135.0
+margin/bottom = 126.0
+rect/min_size = Vector2( 53, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+toggle_mode = false
+text = "N/A"
+flat = false
+
+[node name="Back1" type="Button" parent="TabContainer/KeyConfig/box"]
+
+margin/top = 130.0
+margin/right = 136.0
+margin/bottom = 143.0
+focus_neighbour/bottom = NodePath("../key_joy")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+toggle_mode = false
+text = "Back"
+flat = true
+
+[connection signal="item_selected" from="TabContainer/Graphics/box/pixel_size/pixel_size_option" to="TabContainer" method="_on_pixel_size_option_item_selected"]
+
+[connection signal="toggled" from="TabContainer/Graphics/box/glow" to="TabContainer" method="_on_glow_toggled"]
+
+[connection signal="pressed" from="TabContainer/Graphics/box/Back" to="TabContainer" method="_on_Return"]
+
+[connection signal="toggled" from="TabContainer/Audio/box/SFX/on" to="TabContainer" method="_on_SFX_toggled"]
+
+[connection signal="value_changed" from="TabContainer/Audio/box/SFX/volume" to="TabContainer" method="_on_volume_value_changed"]
+
+[connection signal="pressed" from="TabContainer/Audio/box/Back" to="TabContainer" method="_on_Return"]
+
+[connection signal="item_selected" from="TabContainer/Controls/box/key_joy" to="TabContainer" method="_on_key_joy_item_selected"]
+
+[connection signal="pressed" from="TabContainer/Controls/box/Config" to="TabContainer" method="_on_Config_pressed"]
+
+[connection signal="pressed" from="TabContainer/Controls/box/Back" to="TabContainer" method="_on_Return"]
+
+[connection signal="pressed" from="TabContainer/Credits/box/Back" to="TabContainer" method="_on_Return"]
+
+
