@@ -5,6 +5,8 @@ onready var buttons = get_node('Base/box').get_children()
 onready var game = get_node('/root/Game')
 
 
+var menu = preload('res://Start.tscn')
+
 func _ready():
 	for b in buttons:
 		b.set_text(b.get_name())
@@ -34,13 +36,14 @@ func _GoTo_Credits():
 
 func _GoTo_KeyConfig():
 	set_current_tab(5)
-	get_node('KeyConfig/box/fly_up').grab_focus()
+	get_node('KeyConfig/box/grid/move_up').grab_focus()
 func _on_base_Button_pressed(button):
 	print(button)
 	if has_method("_GoTo_"+button):
 		call("_GoTo_"+button)
 
-
+func _GoTo_Back():
+	game.set_scene(menu)
 
 
 
@@ -74,17 +77,22 @@ func _on_Config_pressed():
 	_on_base_Button_pressed(mode)
 
 		
-
+onready var volume_slider = get_node('Audio/box/SFX/volume')
 
 func _on_SFX_toggled( pressed ):
-	var vol = get_parent().get_node('volume').get_value()
+	var vol = volume_slider.get_value()
 	if !pressed:
 		vol = 0
+		if volume_slider.is_disabled():
+			volume_slider.set_disabled(true)
+	else:
+		if !volume_slider.is_disabled():
+			volume_slider.set_disabled(false)
 	_on_volume_value_changed(vol)
 
 
 func _on_volume_value_changed( value ):
-	if !get_parent().get_node('on').is_pressed():
+	if !get_node('Audio/box/SFX/on').is_pressed():
 		AudioServer.set_fx_global_volume_scale(value)
 
 

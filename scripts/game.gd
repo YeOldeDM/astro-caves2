@@ -5,7 +5,7 @@ var SCREEN_RES = 4 setget _set_screenres
 
 onready var scene = get_node('CurrentScene')
 
-var first_scene = preload('res://main.tscn')
+var first_scene = preload('res://Start.tscn')
 
 var using_joystick = false
 var joy_device = 0
@@ -21,6 +21,8 @@ func set_scene(scn):
 		scene.queue_free()
 	var S = scn.instance()
 	scene.add_child(S)
+	if scn == first_scene:
+		get_node('CurrentScene/Start/MOTD').set_text(MOTD.get_motd())
 
 func Quit():
 	get_tree().quit()
@@ -31,7 +33,7 @@ func _ready():
 	set('SCREEN_RES', SCREEN_RES)
 	if get_current_scene().empty():
 		set_scene(first_scene)
-
+			
 func _set_screenres(mult):
 	SCREEN_RES = mult
 	var size = get_tree().get_root().get_rect().size

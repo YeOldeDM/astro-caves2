@@ -6,6 +6,8 @@
 
 [node name="Main" type="Node"]
 
+process/pause_mode = 1
+
 [node name="World" type="Node2D" parent="."]
 
 script/script = ExtResource( 1 )

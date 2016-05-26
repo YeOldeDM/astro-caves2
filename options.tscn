@@ -8,6 +8,7 @@
 
 [node name="Title" type="Label" parent="."]
 
+visibility/visible = false
 margin/left = 120.0
 margin/right = 192.0
 margin/bottom = 16.0
@@ -24,6 +25,7 @@ max_lines_visible = -1
 
 [node name="TabContainer" type="TabContainer" parent="."]
 
+visibility/self_opacity = 0.0
 margin/left = 8.0
 margin/top = 16.0
 margin/right = 184.0
@@ -39,10 +41,10 @@ script/script = ExtResource( 3 )
 
 [node name="Base" type="Tabs" parent="TabContainer"]
 
-visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
 margin/left = 4.0
+margin/top = 8.0
 margin/right = 4.0
 margin/bottom = 4.0
 focus/ignore_mouse = false
@@ -136,6 +138,7 @@ visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
 margin/left = 4.0
+margin/top = 8.0
 margin/right = 4.0
 margin/bottom = 4.0
 focus/ignore_mouse = false
@@ -265,13 +268,13 @@ visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
 margin/left = 4.0
+margin/top = 8.0
 margin/right = 4.0
 margin/bottom = 4.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
 
 [node name="box" type="VBoxContainer" parent="TabContainer/Audio"]
 
@@ -371,12 +374,14 @@ visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
 margin/left = 4.0
+margin/top = 8.0
 margin/right = 4.0
 margin/bottom = 4.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
 
 [node name="box" type="VBoxContainer" parent="TabContainer/Controls"]
 
@@ -457,6 +462,7 @@ visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
 margin/left = 4.0
+margin/top = 8.0
 margin/right = 4.0
 margin/bottom = 4.0
 focus/ignore_mouse = false
@@ -510,26 +516,28 @@ flat = true
 anchor/right = 1
 anchor/bottom = 1
 margin/left = 4.0
+margin/top = 8.0
 margin/right = 4.0
 margin/bottom = 4.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
 
 [node name="box" type="VBoxContainer" parent="TabContainer/KeyConfig"]
 
-margin/left = -12.0
-margin/top = -15.0
-margin/right = 124.0
-margin/bottom = 128.0
+margin/left = 4.0
+margin/top = -23.0
+margin/right = 140.0
+margin/bottom = 120.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 alignment = 0
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/KeyConfig/box"]
+[node name="grid" type="GridContainer" parent="TabContainer/KeyConfig/box"]
 
 margin/right = 136.0
 margin/bottom = 126.0
@@ -539,7 +547,7 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 columns = 2
 
-[node name="Action" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="Action" type="Label" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/right = 62.0
 margin/bottom = 7.0
@@ -552,7 +560,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Key" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="Key" type="Label" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/left = 66.0
 margin/right = 135.0
@@ -566,7 +574,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="UpLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="UpLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/top = 14.0
 margin/right = 62.0
@@ -580,7 +588,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="move_up" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="move_up" type="Button" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/left = 66.0
 margin/top = 11.0
@@ -595,7 +603,7 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="DownLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="DownLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/top = 31.0
 margin/right = 62.0
@@ -609,7 +617,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="move_down" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="move_down" type="Button" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/left = 66.0
 margin/top = 28.0
@@ -624,7 +632,7 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="LeftLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="LeftLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/top = 48.0
 margin/right = 62.0
@@ -638,7 +646,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="move_left" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="move_left" type="Button" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/left = 66.0
 margin/top = 45.0
@@ -653,7 +661,7 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="RightLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="RightLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/top = 65.0
 margin/right = 62.0
@@ -667,7 +675,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="move_right" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="move_right" type="Button" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/left = 66.0
 margin/top = 62.0
@@ -682,7 +690,7 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="HoldLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="HoldLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/top = 82.0
 margin/right = 62.0
@@ -696,7 +704,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="hold_direction" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="hold_direction" type="Button" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/left = 66.0
 margin/top = 79.0
@@ -711,7 +719,7 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="LaserLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="LaserLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/top = 99.0
 margin/right = 62.0
@@ -725,7 +733,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="fire_laser" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="fire_laser" type="Button" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/left = 66.0
 margin/top = 96.0
@@ -740,7 +748,7 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="MissileLabel" type="Label" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="MissileLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/top = 116.0
 margin/right = 62.0
@@ -754,7 +762,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="fire_missile" type="Button" parent="TabContainer/KeyConfig/box/GridContainer"]
+[node name="fire_missile" type="Button" parent="TabContainer/KeyConfig/box/grid"]
 
 margin/left = 66.0
 margin/top = 113.0

@@ -6,6 +6,7 @@ class Profile:
 	var name	#name which shows up on the profile selection panel
 	var epoch	#unix time at which the profile was created
 	
+	var settings
 	var progress	#a list of Events that flag user has completed
 					#(used to unlock the world upon restoration)
 
