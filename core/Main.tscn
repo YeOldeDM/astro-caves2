@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://scripts/game.gd" type="Script" id=1]
+[ext_resource path="res://core/scripts/Main.gd" type="Script" id=1]
 
 [sub_resource type="Environment" id=1]
 
@@ -46,7 +46,7 @@ bcs/contrast = 1.0
 bcs/saturation = 1.0
 srgb/enabled = false
 
-[node name="Game" type="Node"]
+[node name="Main" type="Node"]
 
 script/script = ExtResource( 1 )
 

@@ -1,7 +1,7 @@
 
 extends RigidBody2D
 
-onready var game = get_node('/root/Game')
+onready var main = get_node('/root/Main')
 onready var world = get_parent()
 var borders = Vector2(176,96)
 
@@ -69,9 +69,9 @@ func _integrate_forces(state):
 	
 	var HOLD = Input.is_action_pressed('hold_direction')
 	
-	if has_control and game.using_joystick:
-		var joyx = Input.get_joy_axis(game.joy_device,game.joy_x_axis)
-		var joyy = Input.get_joy_axis(game.joy_device,game.joy_y_axis)
+	if has_control and main.config.get_value('Controls','mode') == 1:
+		var joyx = Input.get_joy_axis(main.joy_device,main.joy_x_axis)
+		var joyy = Input.get_joy_axis(main.joy_device,main.joy_y_axis)
 		lv.x = joyx*Speed
 		lv.y = joyy*Speed
 		if !HOLD:

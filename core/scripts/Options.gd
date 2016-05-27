@@ -2,10 +2,10 @@
 extends TabContainer
 
 onready var buttons = get_node('Base/box').get_children()
-onready var game = get_node('/root/Game')
+onready var main = get_node('/root/Main')
 
 
-var menu = preload('res://Start.tscn')
+var menu = preload('res://core/Start.tscn')
 
 func _ready():
 	for b in buttons:
@@ -43,7 +43,7 @@ func _on_base_Button_pressed(button):
 		call("_GoTo_"+button)
 
 func _GoTo_Back():
-	game.set_scene(menu)
+	main.set_current_scene(menu)
 
 
 
@@ -64,7 +64,7 @@ func _on_pixel_size_option_item_selected( ID ):
 
 
 func _on_glow_toggled( pressed ):
-	var env = game.get_node('WorldEnvironment').get_environment()
+	var env = main.get_node('WorldEnvironment').get_environment()
 	#set the Glow Enabled parameter
 	env.fx_set_param(2,pressed)
 
@@ -72,7 +72,7 @@ func _on_glow_toggled( pressed ):
 #KEY/BUTTON CONFIGURATION
 func _on_Config_pressed():
 	var mode = 'JoyConfig'
-	if !game.using_joystick:
+	if !main.using_joystick:
 		mode = 'KeyConfig'
 	_on_base_Button_pressed(mode)
 
@@ -97,5 +97,5 @@ func _on_volume_value_changed( value ):
 
 
 func _on_key_joy_item_selected( ID ):
-	if ID == 0:		game.using_joystick = false
-	elif ID == 1:	game.using_joystick = true
+	if ID == 0:		main.using_joystick = false
+	elif ID == 1:	main.using_joystick = true

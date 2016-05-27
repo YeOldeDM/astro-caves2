@@ -9,6 +9,7 @@ var Speed = 28
 onready var downray = get_node('CastDown')
 onready var upray = get_node('CastUp')
 
+onready var world = get_node('../../../../')
 
 var sploder_obj = preload('res://resources/mob_sploder.tscn')
 
@@ -30,7 +31,7 @@ func mob_get_hit(dmg):
 		_kill()
 	else:
 		Life = new_life
-		get_node('/root/Game/CurrentScene/Main/World').start_shake(2,20)
+		world.start_shake(2,20)
 
 func _kill():
 	var sploder = sploder_obj.instance()
@@ -38,7 +39,7 @@ func _kill():
 	get_parent().add_child(sploder)
 	sploder.set_pos(get_pos())
 	
-	get_node('/root/Game/CurrentScene/Main/World').start_shake(4,12)
+	world.start_shake(4,12)
 	
 	queue_free()
 

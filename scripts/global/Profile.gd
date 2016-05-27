@@ -13,14 +13,18 @@ class Profile:
 	var playerStats = {}	#used to store player stats upon game save/restore
 	
 	
-	func _init(ID,name,epoch=null, progress = []):
+	func _init(ID,name,epoch=null, settings=null, progress = [],\
+				playerStats = {}):
 		self.ID = ID
 		self.name = name
 		if epoch == null:
 			self.epoch = OS.get_unix_time()
 		else:	self.epoch = epoch
 		
+		if settings == null:
+			self.settings = ConfigFile.new()
 		self.progress = progress
+		self.playerStats = playerStats
 
 	func add_progress(this):
 		if this in self.progress:

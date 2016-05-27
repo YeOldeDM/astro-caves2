@@ -1,3 +1,9 @@
+#backups
+*~*
+
+#godot extras
+*.flags
+
 #.work folder
 .work
 
