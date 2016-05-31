@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://resources/04B8.fnt" type="Font" id=1]
 [ext_resource path="res://resources/default_theme.thm" type="Theme" id=2]
 [ext_resource path="res://core/scripts/Options.gd" type="Script" id=3]
+[ext_resource path="res://core/scripts/KeyConfig.gd" type="Script" id=4]
 
 [node name="Options" type="Node"]
 
@@ -382,6 +383,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
 
 [node name="box" type="VBoxContainer" parent="TabContainer/Controls"]
 
@@ -537,19 +539,31 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 alignment = 0
 
-[node name="grid" type="GridContainer" parent="TabContainer/KeyConfig/box"]
+[node name="scroll" type="ScrollContainer" parent="TabContainer/KeyConfig/box"]
 
 margin/right = 136.0
 margin/bottom = 126.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+scroll/horizontal = false
+scroll/vertical = true
+
+[node name="grid" type="GridContainer" parent="TabContainer/KeyConfig/box/scroll"]
+
+margin/right = 136.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 3
 columns = 2
+script/script = ExtResource( 4 )
+__meta__ = { "_editor_collapsed":true }
 
-[node name="Action" type="Label" parent="TabContainer/KeyConfig/box/grid"]
+[node name="Action" type="Label" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
-margin/right = 62.0
+margin/right = 65.0
 margin/bottom = 7.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -560,9 +574,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Key" type="Label" parent="TabContainer/KeyConfig/box/grid"]
+[node name="Key" type="Label" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
-margin/left = 66.0
+margin/left = 69.0
 margin/right = 135.0
 margin/bottom = 7.0
 focus/ignore_mouse = true
@@ -574,10 +588,10 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="UpLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
+[node name="UpLabel" type="Label" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
 margin/top = 14.0
-margin/right = 62.0
+margin/right = 65.0
 margin/bottom = 21.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -588,9 +602,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="move_up" type="Button" parent="TabContainer/KeyConfig/box/grid"]
+[node name="move_up" type="Button" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
-margin/left = 66.0
+margin/left = 69.0
 margin/top = 11.0
 margin/right = 135.0
 margin/bottom = 24.0
@@ -603,10 +617,10 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="DownLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
+[node name="DownLabel" type="Label" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
 margin/top = 31.0
-margin/right = 62.0
+margin/right = 65.0
 margin/bottom = 38.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -617,9 +631,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="move_down" type="Button" parent="TabContainer/KeyConfig/box/grid"]
+[node name="move_down" type="Button" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
-margin/left = 66.0
+margin/left = 69.0
 margin/top = 28.0
 margin/right = 135.0
 margin/bottom = 41.0
@@ -632,10 +646,10 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="LeftLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
+[node name="LeftLabel" type="Label" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
 margin/top = 48.0
-margin/right = 62.0
+margin/right = 65.0
 margin/bottom = 55.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -646,9 +660,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="move_left" type="Button" parent="TabContainer/KeyConfig/box/grid"]
+[node name="move_left" type="Button" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
-margin/left = 66.0
+margin/left = 69.0
 margin/top = 45.0
 margin/right = 135.0
 margin/bottom = 58.0
@@ -661,10 +675,10 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="RightLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
+[node name="RightLabel" type="Label" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
 margin/top = 65.0
-margin/right = 62.0
+margin/right = 65.0
 margin/bottom = 72.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -675,9 +689,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="move_right" type="Button" parent="TabContainer/KeyConfig/box/grid"]
+[node name="move_right" type="Button" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
-margin/left = 66.0
+margin/left = 69.0
 margin/top = 62.0
 margin/right = 135.0
 margin/bottom = 75.0
@@ -690,10 +704,10 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="HoldLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
+[node name="HoldLabel" type="Label" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
 margin/top = 82.0
-margin/right = 62.0
+margin/right = 65.0
 margin/bottom = 89.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -704,9 +718,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="hold_direction" type="Button" parent="TabContainer/KeyConfig/box/grid"]
+[node name="hold_direction" type="Button" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
-margin/left = 66.0
+margin/left = 69.0
 margin/top = 79.0
 margin/right = 135.0
 margin/bottom = 92.0
@@ -719,10 +733,10 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="LaserLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
+[node name="LaserLabel" type="Label" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
 margin/top = 99.0
-margin/right = 62.0
+margin/right = 65.0
 margin/bottom = 106.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -733,9 +747,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="fire_laser" type="Button" parent="TabContainer/KeyConfig/box/grid"]
+[node name="fire_laser" type="Button" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
-margin/left = 66.0
+margin/left = 69.0
 margin/top = 96.0
 margin/right = 135.0
 margin/bottom = 109.0
@@ -748,10 +762,10 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="MissileLabel" type="Label" parent="TabContainer/KeyConfig/box/grid"]
+[node name="MissileLabel" type="Label" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
 margin/top = 116.0
-margin/right = 62.0
+margin/right = 65.0
 margin/bottom = 123.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -762,9 +776,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="fire_missile" type="Button" parent="TabContainer/KeyConfig/box/grid"]
+[node name="fire_missile" type="Button" parent="TabContainer/KeyConfig/box/scroll/grid"]
 
-margin/left = 66.0
+margin/left = 69.0
 margin/top = 113.0
 margin/right = 135.0
 margin/bottom = 126.0
@@ -777,7 +791,36 @@ toggle_mode = false
 text = "N/A"
 flat = false
 
-[node name="Back1" type="Button" parent="TabContainer/KeyConfig/box"]
+[node name="PauseLabel" type="Label" parent="TabContainer/KeyConfig/box/scroll/grid"]
+
+margin/top = 133.0
+margin/right = 65.0
+margin/bottom = 140.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+text = "Pause/Menu"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="pause_menu" type="Button" parent="TabContainer/KeyConfig/box/scroll/grid"]
+
+margin/left = 69.0
+margin/top = 130.0
+margin/right = 135.0
+margin/bottom = 143.0
+rect/min_size = Vector2( 53, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+toggle_mode = false
+text = "N/A"
+flat = false
+
+[node name="back" type="Button" parent="TabContainer/KeyConfig/box"]
 
 margin/top = 130.0
 margin/right = 136.0
@@ -786,10 +829,23 @@ focus_neighbour/bottom = NodePath("../key_joy")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
-size_flags/vertical = 3
+size_flags/vertical = 2
 toggle_mode = false
 text = "Back"
 flat = true
+
+[node name="assign_key" type="ConfirmationDialog" parent="TabContainer/KeyConfig"]
+
+visibility/visible = false
+margin/right = 148.0
+margin/bottom = 104.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+popup/exclusive = true
+window/title = "Assign new key.."
+dialog/hide_on_ok = false
 
 [connection signal="item_selected" from="TabContainer/Graphics/box/pixel_size/pixel_size_option" to="TabContainer" method="_on_pixel_size_option_item_selected"]
 
@@ -810,5 +866,11 @@ flat = true
 [connection signal="pressed" from="TabContainer/Controls/box/Back" to="TabContainer" method="_on_Return"]
 
 [connection signal="pressed" from="TabContainer/Credits/box/Back" to="TabContainer" method="_on_Return"]
+
+[connection signal="pressed" from="TabContainer/KeyConfig/box/back" to="TabContainer" method="_GoTo_KeyConfig"]
+
+[connection signal="confirmed" from="TabContainer/KeyConfig/assign_key" to="TabContainer/KeyConfig/box/scroll/grid" method="_on_assign_key_confirmed"]
+
+[connection signal="popup_hide" from="TabContainer/KeyConfig/assign_key" to="TabContainer/KeyConfig/box/scroll/grid" method="_on_assign_key_popup_hide"]
 
 

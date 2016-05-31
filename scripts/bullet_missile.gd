@@ -5,7 +5,7 @@ const Speed = 24
 const Damage = 5
 
 
-const amp = 16
+const amp = 6
 var rise = -2.0
 
 var Y

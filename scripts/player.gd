@@ -8,9 +8,9 @@ var borders = Vector2(176,96)
 var has_control = true
 
 
-var Speed = 32
-var Acelleration = 32
-var Decelleration = 32
+var Speed = 40
+#var Acelleration = 32
+#var Decelleration = 32
 
 var facing = -1
 

@@ -36,7 +36,9 @@ func _GoTo_Credits():
 
 func _GoTo_KeyConfig():
 	set_current_tab(5)
-	get_node('KeyConfig/box/grid/move_up').grab_focus()
+	get_node('KeyConfig/box/scroll/grid/move_up').grab_focus()
+
+
 func _on_base_Button_pressed(button):
 	print(button)
 	if has_method("_GoTo_"+button):
@@ -50,29 +52,22 @@ func _GoTo_Back():
 
 
 func _on_pixel_size_option_item_selected( ID ):
-	var fullscreen = false
-	var size = get_tree().get_root().get_rect().size
 	if ID == 4:
-		fullscreen = true
+		main.set_fullscreen(true)
 	else:
-		size *= ID+1
-
-	OS.set_window_fullscreen(fullscreen)
-	if !fullscreen:
-		OS.set_window_size(size)
+		main.set_fullscreen(false)
+		main.set_screenres(ID)
 
 
 
 func _on_glow_toggled( pressed ):
-	var env = main.get_node('WorldEnvironment').get_environment()
-	#set the Glow Enabled parameter
-	env.fx_set_param(2,pressed)
+	main.set_glow(pressed)
 
 
 #KEY/BUTTON CONFIGURATION
 func _on_Config_pressed():
 	var mode = 'JoyConfig'
-	if !main.using_joystick:
+	if !main.is_using_joystick():
 		mode = 'KeyConfig'
 	_on_base_Button_pressed(mode)
 
@@ -99,3 +94,6 @@ func _on_volume_value_changed( value ):
 func _on_key_joy_item_selected( ID ):
 	if ID == 0:		main.using_joystick = false
 	elif ID == 1:	main.using_joystick = true
+
+
+

@@ -42,6 +42,7 @@ func get_config(path):
 		settings.load(path)
 	else:
 		settings = _make_default_config()
+		settings.save(path)
 	return settings
 
 	

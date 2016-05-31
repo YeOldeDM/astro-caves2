@@ -39,14 +39,12 @@ var messages = [
 	"A box in the sky??",
 	"Literally Aweful",
 	"Dreadfully bright",
-	"Too much blue",
-	"Not enough blue",
-	"Needs side boob",
-	"(has side boob)",
+	"It's too blue",
+	"Not blue enough",
 	"Strong\nBlack\nWoman",
 	"look out, mama",
 	"smoking kills...\nlasers kill faster",
-	"You shart in my heart",
+	"You shart on my heart",
 	]
 #END OF LIST
 

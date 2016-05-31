@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://resources/mobs/scripts/sbug.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/mobs/sbug.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7, 3 )
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "walk"
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.2, 0.4 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ 0, 1, 2 ] }
+
+[node name="Sbug" type="KinematicBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, -0, 0, 1, 0, -4 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+offset = Vector2( 0, -6 )
+hframes = 6
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/walk = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="RayForward" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( 0, -4 )
+enabled = true
+cast_to = Vector2( -8, 0 )
+layer_mask = 1
+type_mask = 1
+
+[node name="RayDown" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( -2, -4 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+layer_mask = 1
+type_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 0, -4 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+

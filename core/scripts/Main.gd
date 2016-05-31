@@ -30,10 +30,18 @@ func set_current_scene(scn):
 
 func _ready():
 	config = Config.get_config(configPath)
+	set_all_keys()
 	
 	if get_current_scene().empty():
 		set_current_scene(first_scene)
 			
+
+func set_all_keys():
+	for action in config.get_section_keys('Keys'):
+		var code = get_keybinding(action)
+		var control = Config.get_key_control(code)
+		Config.set_action(action,control)
+
 
 func is_using_joystick():
 	var joy = config.get_value('Controls','mode')
