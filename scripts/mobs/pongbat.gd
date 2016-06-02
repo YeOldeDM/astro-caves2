@@ -13,13 +13,11 @@ func mob_get_hit(dmg):
 		_kill()
 	else:
 		Life = new_life
-		world.start_shake(3,6)
 
 func _kill():
 	var sploder = sploder_obj.instance()
 	get_parent().add_child(sploder)
 	sploder.set_pos(get_pos())
-	world.start_shake(2,8)
 	queue_free()
 
 

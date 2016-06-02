@@ -10,7 +10,6 @@ var rise = -2.0
 
 var Y
 
-onready var buzz = get_node('sound')
 
 onready var sploder = preload('res://resources/mob_sploder.tscn')
 onready var world = get_node('../../../')
@@ -58,7 +57,6 @@ func Hit(target=null):
 	var S = sploder.instance()
 	get_parent().add_child(S)
 	S.set_global_pos(get_global_pos())
-	get_parent().start_shake(2,30)
 	_remove()
 
 func _on_visibility_exit_screen():

@@ -39,8 +39,6 @@ func _kill():
 	get_parent().add_child(sploder)
 	sploder.set_pos(get_pos())
 	
-	world.start_shake(4,12)
-	
 	queue_free()
 
 

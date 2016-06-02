@@ -9,7 +9,10 @@ func _ready():
 	for I in get_children():
 		if I extends Button:
 			I.connect("pressed",self,"_on_prompt_key_assign",[I.get_name()])
-
+			var code = config.get_value('Keys', I.get_name())
+			print(code+1)
+			var txt = OS.get_scancode_string(99)
+			I.set_text(txt)
 
 func _on_prompt_key_assign( action ):
 	keyprompt.set_meta('action',action)

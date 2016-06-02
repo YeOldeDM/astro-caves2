@@ -5,6 +5,7 @@ onready var buttons = get_node('Base/box').get_children()
 onready var main = get_node('/root/Main')
 
 
+
 var menu = preload('res://core/Start.tscn')
 
 func _ready():

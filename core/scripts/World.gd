@@ -32,23 +32,23 @@ func add_bullet(bullet):
 # Make the world screen shake
 # Also seems to halt gameplay while shaking
 # so use sparingly!!
-func start_shake(amp,falloff):
+func Shake(amp,falloff):
 	shake_amp = amp
 	shake_falloff = falloff
 	set_process(true)
 
-func _Shake(amt):
+func _shake(amt):
 	var x = rand_range(-amt,amt)
 	var y = rand_range(-amt,amt)
-	set_pos(Vector2(x,y))
+	get_node('Camera').set_pos(Vector2(x,y))
 
 
 func _process(delta):
 	if shake_amp >= 0:
-		_Shake(shake_amp)
+		_shake(shake_amp)
 	else:
 		set_process(false)
-	shake_amp -= delta*shake_falloff
+	shake_amp -= delta * (1.0*shake_falloff/1.0*shake_amp)
 
 func _spawnmap(x,y):
 	# load the pending map
