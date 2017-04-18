@@ -10,7 +10,7 @@ func _ready():
 		if I extends Button:
 			I.connect("pressed",self,"_on_prompt_key_assign",[I.get_name()])
 			var code = config.get_value('Keys', I.get_name())
-			print(code+1)
+			print(code)
 			var txt = OS.get_scancode_string(99)
 			I.set_text(txt)
 
@@ -42,7 +42,7 @@ func _on_assign_key_confirmed():
 	if action != null && control != null:
 		Config.set_action(action,control)
 		config.set_value('Keys',action,control.scancode)
-		config.save()
+		config.save(get_node('/root/Main').configPath)
 		var name = OS.get_scancode_string(control.scancode)
 		get_node(action).set_text(name.capitalize())
 		keyprompt.hide()

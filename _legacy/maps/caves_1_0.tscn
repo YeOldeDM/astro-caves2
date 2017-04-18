@@ -35,7 +35,7 @@ tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0
 
 [node name="Sbug" parent="mobs" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 48, 88 )
+transform/pos = Vector2( 120, 88 )
 collision/margin = 0.08
 
 

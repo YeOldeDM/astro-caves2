@@ -5,35 +5,37 @@ extends Node
 var config
 var configPath = 'res://config.ini'
 
-onready var main = get_node('/root/Main')
 onready var scene = get_node('CurrentScene')
 
-var first_scene = preload('res://core/Start.tscn')
 
 
+var using_joystick = true
 
 func get_current_scene():
 	return scene.get_children()
 
 
 func set_current_scene(scn):
-	for scene in get_current_scene():
-		scene.queue_free()
+	clear_current_scene()
 	var S = scn.instance()
 	scene.add_child(S)
-	if scn == first_scene:
-		get_node('CurrentScene/Start/MOTD').set_text(MOTD.get_motd())
+#	if scn == first_scene:
+#		get_node('CurrentScene/Start/MOTD').set_text(MOTD.get_motd())
 
 
+func clear_current_scene():
+	while !get_current_scene().empty():
+		get_current_scene()[0].queue_free()
 
 
 
 func _ready():
-	config = Config.get_config(configPath)
-	set_all_keys()
-	
-	if get_current_scene().empty():
-		set_current_scene(first_scene)
+	pass
+#	config = Config.get_config(configPath)
+#	set_all_keys()
+#	
+#	if get_current_scene().empty():
+#		set_current_scene(first_scene)
 			
 
 func set_all_keys():
@@ -71,7 +73,7 @@ func set_fullscreen(fullscreen):
 	OS.set_window_fullscreen(fullscreen)
 
 func set_glow(glow):
-	var env = main.get_node('WorldEnvironment').get_environment()
+	var env = get_node('WorldEnvironment').get_environment()
 	#set the Glow Enabled parameter
 	env.fx_set_param(2,glow)
 

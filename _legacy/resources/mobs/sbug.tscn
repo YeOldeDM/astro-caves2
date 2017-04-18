@@ -3,7 +3,7 @@
 [ext_resource path="res://resources/mobs/scripts/sbug.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/mobs/sbug.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 7, 3 )
@@ -22,11 +22,11 @@ tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.2, 0.4 ), "transitions"
 [node name="Sbug" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, -0, 0, 1, 0, -4 )
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -4 )
 shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
+collision/layers = 513
+collision/mask = 513
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
@@ -52,7 +52,7 @@ autoplay = ""
 transform/pos = Vector2( 0, -4 )
 enabled = true
 cast_to = Vector2( -8, 0 )
-layer_mask = 1
+layer_mask = 513
 type_mask = 1
 
 [node name="RayDown" type="RayCast2D" parent="."]
@@ -60,13 +60,13 @@ type_mask = 1
 transform/pos = Vector2( -2, -4 )
 enabled = true
 cast_to = Vector2( 0, 5 )
-layer_mask = 1
+layer_mask = 513
 type_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( 0, -4 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 

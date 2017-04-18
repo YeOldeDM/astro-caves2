@@ -515,7 +515,6 @@ flat = true
 
 [node name="KeyConfig" type="Tabs" parent="TabContainer"]
 
-visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
 margin/left = 4.0
@@ -552,7 +551,9 @@ scroll/vertical = true
 
 [node name="grid" type="GridContainer" parent="TabContainer/KeyConfig/box/scroll"]
 
+margin/top = -1.0
 margin/right = 136.0
+margin/bottom = 142.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
