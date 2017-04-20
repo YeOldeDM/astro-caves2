@@ -1,5 +1,5 @@
 
-extends Node
+extends Control
 
 
 var config

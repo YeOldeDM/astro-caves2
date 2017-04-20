@@ -2,24 +2,58 @@ extends KinematicBody2D
 
 onready var sprite = get_node('Sprite')
 onready var camera = get_node('Camera')
+onready var laser_timer = get_node('LaserReload')
+
 
 var G = Game.get_gravity()
 var facing = 1 setget _set_facing
 
+var laser_reload_time = [0.42, 0.12]
 
-var speed = 64
+var upgrades = {
+	'laser':	true,
+	'laserboost': false,
+	'autolaser': false,
+	'speedup':	false,
+	}
+
+var can_fire = {
+	'laser':	true,
+	}
+
+var trigger_held = {
+	'laser':	false,
+	}
+
+var speed = [54, 86]
 
 
 var joy_force = Vector2()
 var hold_direction = false
 
+
+func get_speed():
+	return self.speed[int(self.upgrades.speedup)]
+
+func get_laser_reload_time():
+	return self.laser_reload_time[int(self.upgrades.laserboost)]
+
+
 func fire_laser():
+	# spawn bullet
 	var bullet = preload('res://core/bullets/LaserBullet.tscn').instance()
 	var pos = get_pos()
 	pos.x += 4*self.facing
 	var dir = Vector2(self.facing*280,0)
 	get_parent().add_child(bullet)
+	# fire bullet
 	bullet.fire(self,pos,dir)
+	
+	# Fire control
+	self.can_fire.laser = false
+	laser_timer.start()
+
+
 
 func set_room(room):
 	print(room.get_name())
@@ -45,9 +79,14 @@ func set_room(room):
 	prints(camera.get_limit(0),camera.get_limit(1),camera.get_limit(2),camera.get_limit(3))
 
 func _ready():
+	Globals.player = self
 	Game.player = self
+	laser_timer.set_wait_time(get_laser_reload_time())
 	set_fixed_process(true)
 	set_process_input(true)
+	set_process(true)
+	
+	Globals.Stats.set_upgrades(self.upgrades)
 
 
 func _input(event):
@@ -61,6 +100,13 @@ func _input(event):
 	if event.is_action_released("hold_direction"):
 		self.hold_direction = false
 	if event.is_action_pressed("fire_laser"):
+		if upgrades.laser && !upgrades.autolaser && can_fire.laser:
+			fire_laser()
+
+
+func _process(delta):
+	self.trigger_held.laser = Input.is_action_pressed("fire_laser")
+	if self.upgrades.autolaser && self.trigger_held.laser && can_fire.laser:
 		fire_laser()
 
 
@@ -69,31 +115,37 @@ func _fixed_process(delta):
 
 	
 	
+	
 	var force = self.joy_force
 
 	if force.length() > 1.0:
 		force = force.normalized()
 	
-	force *= speed * delta
+	force *= get_speed() * delta
 	if !self.hold_direction:
 		if force.x < 0: new_facing = -1
 		if force.x > 0: new_facing = 1
 	
-	var motion = force
+	var motion = move(force)
 	if is_colliding():
-		motion = get_collision_normal().slide(motion)
+		var n = get_collision_normal()
+		motion = n.slide(motion)
+		force = n.slide(force)
 	move(motion)
 	
 	
 
-	
-	
 	if new_facing != self.facing:
 		self.facing = new_facing
 
-
+	
 
 
 func _set_facing(what):
 	facing = what
 	sprite.set_scale(Vector2(facing,1))
+
+
+func _on_LaserReload_timeout():
+	self.can_fire.laser = true
+	laser_timer.set_wait_time(get_laser_reload_time())

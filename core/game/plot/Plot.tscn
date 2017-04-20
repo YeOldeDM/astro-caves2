@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://core/game/plot/Plot.gd" type="Script" id=1]
+
+[node name="Plot" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 185.0
+margin/top = 1.0
+margin/right = 319.0
+margin/bottom = 239.0
+script/script = ExtResource( 1 )
+
+[node name="box" type="VBoxContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 6.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+alignment = 0
+
+[node name="Text" type="RichTextLabel" parent="box"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 128.0
+margin/bottom = 238.0
+bbcode/enabled = true
+bbcode/bbcode = "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah "
+visible_characters = 0
+
+[node name="CharTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="CharTimer" to="." method="_on_CharTimer_timeout"]
+
+

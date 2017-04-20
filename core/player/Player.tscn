@@ -52,4 +52,13 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = ExtResource( 3 )
 
+[node name="LaserReload" type="Timer" parent="."]
+
+process_mode = 0
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="LaserReload" to="." method="_on_LaserReload_timeout"]
+
 

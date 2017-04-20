@@ -33,5 +33,5 @@ func _ready():
 func _on_Collder_body_enter( body ):
 	if body != self.origin:
 		if body.has_method('take_damage'):
-			body.take_damage(self.damage)
+			body.take_damage(self.damage,self)
 		die()

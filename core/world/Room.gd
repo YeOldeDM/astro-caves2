@@ -17,6 +17,7 @@ func _on_Room_body_enter( body ):
 		for mob in get_tree().get_nodes_in_group('mobs'):
 			mob.queue_free()
 		Game.player.set_room(self)
+		Globals.Plot.set_plot()
 		spawn()
 
 

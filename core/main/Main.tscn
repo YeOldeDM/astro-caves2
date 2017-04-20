@@ -1,9 +1,21 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=7 format=1]
 
-[ext_resource path="res://core/main/Main.gd" type="Script" id=1]
-[ext_resource path="res://core/game/Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/wendy.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://core/main/Main.gd" type="Script" id=2]
+[ext_resource path="res://core/game/Game.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 10
+font/use_mipmaps = true
+font/use_filter = false
+font/font = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+
+default_font = SubResource( 1 )
+
+[sub_resource type="Environment" id=3]
 
 ambient_light/enabled = true
 ambient_light/color = Color( 0, 0, 0, 1 )
@@ -47,21 +59,46 @@ bcs/contrast = 1.0
 bcs/saturation = 1.0
 srgb/enabled = false
 
-[node name="Main" type="Node"]
+[node name="Main" type="Control"]
 
-script/script = ExtResource( 1 )
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = SubResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 2 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-environment = SubResource( 1 )
+environment = SubResource( 3 )
 
-[node name="CurrentScene" type="Node2D" parent="."]
+[node name="CurrentScene" type="Control" parent="."]
 
-[node name="Game" parent="CurrentScene" instance=ExtResource( 2 )]
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+[node name="Game" parent="CurrentScene" instance=ExtResource( 3 )]
+
+editor/display_folded = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 color = Color( 1, 1, 1, 1 )
 
 
+[editable path="CurrentScene/Game"]

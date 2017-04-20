@@ -1,0 +1,164 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://resources/std_panel.tres" type="StyleBox" id=1]
+[ext_resource path="res://core/game/stats/Stats.gd" type="Script" id=2]
+[ext_resource path="res://core/game/stats/Upgrades.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[node name="Stats" type="TabContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1.0
+margin/top = 137.0
+margin/right = 183.0
+margin/bottom = 239.0
+custom_styles/tab_fg = ExtResource( 1 )
+custom_styles/tab_bg = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
+custom_constants/side_margin = 10
+tab_align = 2
+tabs_visible = true
+script/script = ExtResource( 2 )
+
+[node name="UP" type="Control" parent="."]
+
+editor/display_folded = true
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 18.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 3 )
+
+[node name="box" type="GridContainer" parent="UP"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+columns = 2
+
+[node name="laser" type="CheckBox" parent="UP/box"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 85.0
+margin/bottom = 23.0
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "laser"
+flat = false
+align = 0
+
+[node name="laserboost" type="CheckBox" parent="UP/box"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 89.0
+margin/top = 0.0
+margin/right = 173.0
+margin/bottom = 23.0
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "las boost"
+flat = false
+align = 0
+
+[node name="autolaser" type="CheckBox" parent="UP/box"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 27.0
+margin/right = 85.0
+margin/bottom = 50.0
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "autolaser"
+flat = false
+align = 0
+
+[node name="speedup" type="CheckBox" parent="UP/box"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 89.0
+margin/top = 27.0
+margin/right = 173.0
+margin/bottom = 50.0
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "speedup"
+flat = false
+align = 0
+
+[node name="STS" type="Control" parent="."]
+
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 18.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+[node name="MAP" type="Control" parent="."]
+
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 18.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+

@@ -63,7 +63,7 @@ _update_shape_index = 0
 
 process_mode = 1
 wait_time = 1.0
-one_shot = false
+one_shot = true
 autostart = false
 
 [connection signal="timeout" from="Idle" to="." method="_on_Idle_timeout"]
