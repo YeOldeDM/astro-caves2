@@ -75,7 +75,15 @@ func set_room(room):
 	camera.set_limit(1,miny)
 	camera.set_limit(2,maxx)
 	camera.set_limit(3,maxy)
-
+	
+	var pos = get_global_pos()
+	if pos.x < minx: pos.x = minx + 4
+	if pos.x > maxx: pos.x = maxx - 4
+	if pos.y < miny: pos.y = miny + 4
+	if pos.y > maxy: pos.y = maxy - 4
+	if pos != get_global_pos():
+		set_global_pos(pos)
+	
 	prints(camera.get_limit(0),camera.get_limit(1),camera.get_limit(2),camera.get_limit(3))
 
 func _ready():
